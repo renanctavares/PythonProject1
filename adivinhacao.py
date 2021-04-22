@@ -4,10 +4,9 @@ print("*********************************")
 
 secret_number = 43
 total_attempts = 3
-round = 1
 
-while round <= total_attempts:
-    print("Round", round, "of", total_attempts)
+for attempt in range(1, total_attempts+1):
+    print("Round {} of {}".format(round, total_attempts))
     guess = input("Type an integer number of your choice: ")
 
     print("You typed ", guess)
@@ -20,6 +19,5 @@ while round <= total_attempts:
     else:
         print("You chose the wrong number! You guessed a smaller number!")
 
-    round = round + 1
 
 print("The End")
