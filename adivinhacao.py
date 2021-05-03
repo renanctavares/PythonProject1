@@ -1,8 +1,10 @@
+import random
+
 print("*********************************")
 print("* Welcome to the Guessing Game! *")
 print("*********************************")
 
-secret_number = 43
+secret_number = random.randrange(1, 101)
 total_attempts = 3
 
 for attempt in range(1, total_attempts+1):
