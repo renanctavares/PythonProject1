@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-print("Bem vindo ao jogo de Adivinhação!")
-=======
 import random
 
 print("*********************************")
@@ -55,4 +52,3 @@ for attempt in range(1, total_attempts+1):
 
 
 print("The End!")
->>>>>>> develop
