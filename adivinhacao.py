@@ -51,4 +51,4 @@ for attempt in range(1, total_attempts+1):
         print("You chose the wrong number! You guessed a smaller number!")
 
 
-print("The End")
+print("The End!")
