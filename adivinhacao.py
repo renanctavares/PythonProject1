@@ -5,6 +5,7 @@ print("* Welcome to the Guessing Game! *")
 print("*********************************")
 
 secret_number = random.randrange(1, 101)
+points = 1000
 
 print("(1) Easy")
 print("(2) Normal")
@@ -38,8 +39,11 @@ for attempt in range(1, total_attempts+1):
         print("You must type a number between 1 and 100")
         continue
 
+    points = points - abs(secret_number - int_guess)
+
     if secret_number == int_guess:
         print("You chose the right number! Congrats!")
+        print("You got {} points!".format(points))
         break
     elif int_guess > secret_number:
         print("You chose the wrong number! You guessed a greater number!")
