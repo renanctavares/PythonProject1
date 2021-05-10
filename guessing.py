@@ -14,14 +14,14 @@ def play():
     level = int(input("Choose a level: "))
     flag_level = False
 
-    while (flag_level != True):
-        if(level == 1):
+    while flag_level != True:
+        if level == 1:
             total_attempts = 20
             flag_level = True
-        elif(level == 2):
+        elif level == 2:
             total_attempts = 10
             flag_level = True
-        elif(level == 3):
+        elif level == 3:
             total_attempts = 5
             flag_level = True
         else:
@@ -53,3 +53,6 @@ def play():
 
 
     print("The End!")
+
+if __name__ == "__main__":
+    play()
