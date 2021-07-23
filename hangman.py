@@ -9,8 +9,15 @@ def play():
     guessed = False
 
     #Loop for the game
-    while(not hanged and not guessed):
-        print("playing ...")
+    while not hanged and not guessed:
+
+        guess = input("Which letter?")
+
+        index = 0
+        for letter in secret_word:
+            if guess == letter:
+                print("Found letter {} in position {}.".format(guess, index))
+            index = index + 1
 
     print("The End!")
 
