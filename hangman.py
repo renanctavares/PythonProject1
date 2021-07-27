@@ -12,10 +12,11 @@ def play():
     while not hanged and not guessed:
 
         guess = input("Which letter?")
+        guess = guess.strip()
 
         index = 0
         for letter in secret_word:
-            if guess == letter:
+            if guess.upper() == letter.upper():
                 print("Found letter {} in position {}.".format(guess, index))
             index = index + 1
 
