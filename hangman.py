@@ -4,7 +4,7 @@ def play():
     print("********************************")
 
     secret_word = "banana".upper()
-    guessed_letters = ["_", "_", "_", "_", "_", "_"]
+    guessed_letters = ["_" for letter in secret_word]
 
     hanged = False
     guessed = False
