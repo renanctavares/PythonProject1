@@ -1,20 +1,12 @@
 import random
 
 def play():
-    print("********************************")
-    print("* Welcome to the Hangman Game! *")
-    print("********************************")
 
-    words = []
+    print_title()
 
-    with open("/Users/renancostatavares/Documents/GitKraken/PythonProject1/words.txt", "r") as file:
-        for line in file:
-            words.append(line.strip())
+    secret_word = load_secret_word()
 
-    word_id = random.randrange(0, len(words))
-
-    secret_word = words[word_id].upper()
-    guessed_letters = ["_" for letter in secret_word]
+    guessed_letters = initialize_guessed_words(secret_word)
 
     hanged = False
     guessed = False
@@ -46,6 +38,26 @@ def play():
     else:
         print("Oh I'm sorry! You lost!")
     print("The End!")
+
+def print_title():
+    print("********************************")
+    print("* Welcome to the Hangman Game! *")
+    print("********************************")
+
+def load_secret_word():
+    words = []
+
+    with open("/Users/renancostatavares/Documents/GitKraken/PythonProject1/words.txt", "r") as file:
+        for line in file:
+            words.append(line.strip())
+
+    word_id = random.randrange(0, len(words))
+
+    secret_word = words[word_id].upper()
+    return secret_word
+
+def initialize_guessed_words(secret_word):
+    return ["_" for letter in secret_word]
 
 if __name__ == "__main__":
     play()
