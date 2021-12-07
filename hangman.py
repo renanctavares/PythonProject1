@@ -7,25 +7,19 @@ def play():
     secret_word = load_secret_word()
 
     guessed_letters = initialize_guessed_words(secret_word)
+    print(guessed_letters)
 
     hanged = False
     guessed = False
     failures = 0
 
-    print(guessed_letters)
-
     #Loop for the game
     while not hanged and not guessed:
 
-        guess = input("Which letter?")
-        guess = guess.strip().upper()
+        guess = ask_guess()
 
         if guess in secret_word:
-            index = 0
-            for letter in secret_word:
-                if guess == letter:
-                    guessed_letters[index] = guess
-                index += 1
+            mark_right_guesses(guess, guessed_letters, secret_word)
         else:
             failures += 1
 
@@ -37,7 +31,6 @@ def play():
         print("Congratulations! You won!")
     else:
         print("Oh I'm sorry! You lost!")
-    print("The End!")
 
 def print_title():
     print("********************************")
@@ -58,6 +51,18 @@ def load_secret_word():
 
 def initialize_guessed_words(secret_word):
     return ["_" for letter in secret_word]
+
+def ask_guess():
+    guess = input("Which letter?")
+    guess = guess.strip().upper()
+    return guess
+
+def mark_right_guesses(guess, guessed_letters, secret_word):
+    index = 0
+    for letter in secret_word:
+        if guess == letter:
+            guessed_letters[index] = guess
+        index += 1
 
 if __name__ == "__main__":
     play()
