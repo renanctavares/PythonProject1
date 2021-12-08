@@ -22,15 +22,16 @@ def play():
             mark_right_guesses(guess, guessed_letters, secret_word)
         else:
             failures += 1
+            draw_hangman(failures)
 
-        hanged = failures == 6
+        hanged = failures == 7
         guessed = "_" not in guessed_letters
         print(guessed_letters)
 
     if guessed:
-        print("Congratulations! You won!")
+        print_winning_message()
     else:
-        print("Oh I'm sorry! You lost!")
+        print_lost_message(secret_word)
 
 def print_title():
     print("********************************")
@@ -63,6 +64,89 @@ def mark_right_guesses(guess, guessed_letters, secret_word):
         if guess == letter:
             guessed_letters[index] = guess
         index += 1
+
+def print_lost_message(secret_word):
+    print("Oh my! You've been hanged!")
+    print("The secret word was {}".format(secret_word))
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
+
+def print_winning_message():
+    print("Congratulations, you won!")
+    print("       ___________       ")
+    print("      '._==_==_=_.'      ")
+    print("      .-\\:      /-.     ")
+    print("     | (|:.     |) |     ")
+    print("      '-|:.     |-'      ")
+    print("        \\::.    /       ")
+    print("         '::. .'         ")
+    print("           ) (           ")
+    print("         _.' '._         ")
+    print("        '-------'        ")
+
+def draw_hangman(failures):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if(failures == 1):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(failures == 2):
+        print(" |      (_)   ")
+        print(" |       |    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(failures == 3):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(failures == 4):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(failures == 5):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(failures == 6):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (failures == 7):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 if __name__ == "__main__":
     play()
